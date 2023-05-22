@@ -3,6 +3,7 @@ package com.example.actividades;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
                 validarCredenciales();
             }
         });
+
+        Button salirButton = findViewById(R.id.button2);
+        salirButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Cierra la actividad actual y la elimina de la pila de actividades
+                System.exit(0); // Finaliza el proceso de la aplicación
+            }
+        });
     }
 
     public void validarCredenciales() {
@@ -42,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (usuarioIngresado.equals(usuarioValido) && passwordIngresado.equals(passwordValido)) {
             Toast.makeText(this, "Credenciales correctas", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
         }
