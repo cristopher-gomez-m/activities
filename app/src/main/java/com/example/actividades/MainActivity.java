@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0); // Finaliza el proceso de la aplicación
             }
         });
+
+        Button button_crear_cuenta = findViewById(R.id.button_crear_cuenta);
+        button_crear_cuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Crear_cuenta.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void validarCredenciales() {
